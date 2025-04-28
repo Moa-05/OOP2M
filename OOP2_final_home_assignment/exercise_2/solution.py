@@ -1,3 +1,22 @@
+import requests
+from bs4 import BeautifulSoup
+import json
+import os
+
+# Denna variabel kan du använda för att läsa in data från API'et 
+url = "https://realpython.github.io/fake-jobs/"
+
+# Denna variabel kan du använda för att spara ned filen jobs.json i samma mapp som denna fil.
+output_path = os.path.join(os.path.dirname(__file__), 'jobs.json')
+
+
+# INSTRUKTIONER
+
+# Scrapa sidan - https://realpython.github.io/fake-jobs/
+# Lägg in det i en lista av dictionaries, där varje dictionary skall innehålla jobtitel, företag, ort, och publiceringsdatum.
+# Se till att varje ort är korrekt formaterad med första bokstaven i versal.
+# Skriv ned ditt resultat till en JSON-fil kallad job_search_v2.json.
+
 from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.chart import BarChart, Reference
