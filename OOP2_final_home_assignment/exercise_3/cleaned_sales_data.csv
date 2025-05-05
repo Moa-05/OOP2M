@@ -7,7 +7,6 @@ order_id,customer_id,product_list,total_price,order_date
 8,16.0,"Shoes, Sweater, Blouse",974.15,2010-08-31 09:04:19
 9,2.0,"Sweater, Blouse",799.66,2016-10-22 12:19:07
 10,,"Sweater, Blouse, Shoes, Hat",1219.79,2010-11-18 03:14:12
-11,8.0,"Shoes, Skirt",1209.59,2008-04-30 09:27:17
 14,7.0,"Blouse, Shoes, Hat, Skirt",1472.26,2011-01-09 16:09:35
 16,13.0,"Sweater, Hat",270.83,2021-06-22 16:47:42
 17,2.0,"Shoes, Blouse",930.14,2015-01-13 13:11:14
@@ -34,7 +33,6 @@ order_id,customer_id,product_list,total_price,order_date
 41,10.0,"Hat, Sweater",629.14,2011-08-31 19:55:00
 42,20.0,"Hat, Skirt, Sweater, Shoes",1836.5,2014-04-04 01:45:48
 43,15.0,"Hat, Shoes, Sweater, Skirt",1941.43,2002-10-29 11:39:49
-11,18.0,"Blouse, Shoes, Sweater, Hat, Skirt",1392.76,2003-01-06 14:06:07
 45,10.0,"Skirt, Hat, Shoes, Sweater, Blouse",2294.11,2002-01-13 09:09:17
 46,0.0,"Blouse, Shoes, Sweater",1288.28,2015-10-24 14:45:53
 47,,"Blouse, Hat, Shoes, Sweater, Skirt",2153.74,2010-10-03 06:51:26
@@ -69,7 +67,6 @@ order_id,customer_id,product_list,total_price,order_date
 83,,"Shoes, Hat",221.19,2001-12-12 02:40:05
 84,6.0,"Hat, Blouse, Shoes, Sweater, Skirt",1875.26,2009-07-19 18:41:41
 85,,"Shoes, Hat, Sweater",1623.43,2006-09-28 14:34:50
-86,17.0,"Shoes, Blouse, Hat, Sweater",907.0,2012-01-05 20:52:29
 87,20.0,"Blouse, Hat, Shoes",1654.58,2006-09-04 05:06:23
 88,5.0,"Shoes, Hat, Skirt",1151.66,2015-05-18 13:11:06
 90,17.0,"Hat, Shoes",545.72,2016-03-24 20:48:06

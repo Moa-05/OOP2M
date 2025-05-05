@@ -11,44 +11,36 @@ try:
     print("Lyckades läsa in data:")
     print(data.head())
 
-    # Steg 2: Ta bort rader med duplicerade ordernummer
-    if 'order_number' in data.columns:
-        data = data.drop_duplicates(subset=['order_number'])
+    # Steg 2: Ta bort rader med duplicerade ordernummer (använd order_id istället)
+    if 'order_id' in data.columns:
+        data = data.drop_duplicates(subset=['order_id'])
         print("Duplicerade ordernummer borttagna.")
     else:
-        print("Kolumnen 'order_number' saknas i data. Skipping this step.")
+        print("Kolumnen 'order_id' saknas i data. Skipping this step.")
 
-    # Steg 3: Beräkna total_price om den saknas
-    if 'total_price' not in data.columns:
-        if 'Count sold' in data.columns and 'Price per item' in data.columns:
-            data['total_price'] = data['Count sold'] * data['Price per item']
-            print("Kolumnen 'total_price' har beräknats.")
-        else:
-            print("Kolumnen 'Count sold' eller 'Price per item' saknas, och 'total_price' kan inte beräknas.")
-
-    # Steg 4: Ta bort outliers i total_price (> 8000)
+    # Steg 3: Ta bort outliers i total_price (> 8000)
     if 'total_price' in data.columns:
         data = data[data['total_price'] <= 8000]
         print("Outliers i 'total_price' borttagna.")
     else:
         print("Kolumnen 'total_price' saknas i data. Skipping this step.")
 
-    # Steg 5: Ta bort rader med tomma product_list
+    # Steg 4: Ta bort rader med tomma product_list
     if 'product_list' in data.columns:
-        data = data[data['product_list'].notna()]
+        data = data[data['product_list'].notna() & data['product_list'].str.strip().ne("")]
         print("Rader med tomma 'product_list' borttagna.")
     else:
         print("Kolumnen 'product_list' saknas i data. Skipping this step.")
 
-    # Steg 6: Konvertera datumformat med felhantering
+    # Steg 5: Konvertera datumformat
     if 'order_date' in data.columns:
-        data['order_date'] = pd.to_datetime(data['order_date'], errors='coerce')
+        data['order_date'] = pd.to_datetime(data['order_date'], errors='coerce', dayfirst=False)
         data = data[data['order_date'].notna()]  # Ta bort felaktiga datum
         print("Datumformat konverterat och felaktiga datum borttagna.")
     else:
         print("Kolumnen 'order_date' saknas i data. Skipping this step.")
 
-    # Steg 7: Spara resultatet till ny fil
+    # Steg 6: Spara resultatet till ny fil
     data.to_csv(output_path, index=False)
     print(f"Rensad data sparad till: {output_path}")
 except FileNotFoundError:
